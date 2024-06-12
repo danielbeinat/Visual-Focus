@@ -13,7 +13,7 @@ export const Popular = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col gap-7 justify-center h-[550px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="flex items-center flex-col gap-7 justify-center lg:h-[570px] h-[500px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <h1 className="text-white text-3xl md:text-[60px] font-bold">
           Visual Image
         </h1>

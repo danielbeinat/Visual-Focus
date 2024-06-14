@@ -3,9 +3,13 @@ import { useState, useEffect } from "react";
 import { Navbar } from "../Components/Navbar";
 const { VITE_APP_UNSPLASH_KEY } = import.meta.env;
 
+interface Tag {
+  title: string;
+}
+
 export const Photo = () => {
   const { id } = useParams();
-  const [photo, setPhoto] = useState(null);
+  const [photo, setPhoto] = useState<any>(null);
 
   const downloadImage = async () => {
     try {
@@ -140,7 +144,7 @@ export const Photo = () => {
 
       <div className="flex flex-col lg:flex-row mt-5 gap-5 md:pl-10 items-center mb-10">
         <h1 className="text-gray-500">Tags:</h1>
-        {photo.tags.slice(0, 7).map((tag) => (
+        {photo.tags.slice(0, 7).map((tag: Tag) => (
           <h1
             key={tag.title}
             className="md:text-sm text-xs bg-gray-200 font-bold rounded px-4 py-2"

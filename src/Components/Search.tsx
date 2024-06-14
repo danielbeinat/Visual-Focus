@@ -1,11 +1,11 @@
 import { UsePhotoSearch } from "./usePhotoSearch/UsePhotoSearch";
 import { useNavigate } from "react-router-dom";
 
-export const Search = ({ className }) => {
+export const Search = ({ className }: { className: string }) => {
   const { setData } = UsePhotoSearch();
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     e.preventDefault();
     const query = e.target.elements.search.value;
     setData(query);

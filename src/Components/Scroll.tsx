@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const Scroll = () => {
-  const [showButton, setShowButton] = useState(false);
+  const [showButton, setShowButton] = useState<boolean>(false);
 
   const handleScroll = () => {
     if (window.scrollY > 300) {

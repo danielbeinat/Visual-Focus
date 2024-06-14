@@ -1,8 +1,7 @@
 import logo from "../assets/logo.svg";
-import { Search } from "../Components/Search";
+import { Search } from "./Search";
 import { Link } from "react-router-dom";
 import "./css/Navbar.css";
-import { useState } from "react";
 
 export const Navbar = () => {
   return (

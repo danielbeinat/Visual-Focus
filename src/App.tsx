@@ -1,9 +1,9 @@
 import { Popular } from "./Pages/Popular/Popular";
 import { Photo } from "./Pages/Photo";
 import { Route, Routes } from "react-router-dom";
-import { Footer } from "../src/Components/Footer";
+import { Footer } from "./Components/Footer";
 import { SearchResults } from "./Pages/SearchResults";
-import { Scroll } from "../src/Components/Scroll";
+import { Scroll } from "./Components/Scroll";
 export const App = () => {
   return (
     <>

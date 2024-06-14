@@ -1,13 +1,32 @@
-import { UsePhotoSearch } from "../Components/usePhotoSearch/UsePhotoSearch";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Navbar } from "../Components/Navbar";
+import { UsePhotoSearch } from "../Components/usePhotoSearch/UsePhotoSearch";
+
+interface Photo {
+  id: string;
+  urls: {
+    regular: string;
+  };
+  alt_description: string;
+  user: {
+    profile_image: {
+      large: string;
+    };
+    name: string;
+  };
+}
 
 export const SearchResults = () => {
-  const { query } = useParams();
+  const { query } = useParams<{ query: string }>();
   const { photos, fetchData } = UsePhotoSearch();
 
-  fetchData(query);
+  useEffect(() => {
+    if (query) {
+      // Verifica si query no es undefined
+      fetchData(query);
+    }
+  }, [query, fetchData]);
 
   return (
     <>
@@ -17,7 +36,7 @@ export const SearchResults = () => {
           Resultados de búsqueda para "{query}"
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {photos.map((photo) => (
+          {photos.map((photo: Photo) => (
             <Link
               className="relative group"
               to={`/photo/${photo.id}`}

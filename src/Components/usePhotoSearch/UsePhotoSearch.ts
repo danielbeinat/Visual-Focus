@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-const { VITE_APP_UNSPLASH_KEY } = import.meta.env;
-
 
 export const UsePhotoSearch = () => {
-  const [data, setData] = useState("");
-  const [photos, setPhotos] = useState([]);
+  const [data, setData] = useState<string>("");
+  const [photos, setPhotos] = useState<any>([]);
 
-  const fetchData = async (query) => {
+  const fetchData = async (query: string) => {
+    const { VITE_APP_UNSPLASH_KEY } = import.meta.env;
     const key = VITE_APP_UNSPLASH_KEY;
     const url = `https://api.unsplash.com/search/photos/?client_id=${key}&query=${query}$query&per_page=30`;
 

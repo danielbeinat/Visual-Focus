@@ -3,7 +3,7 @@
   height: 55px;
   border-radius: 50px;
   display: flex;
-  box-shadow: 0 0 5px rgb(175, 172, 172);
+  /* box-shadow: 0 0 5px rgb(175, 172, 172); */
 }
 
 .popular-search input {
@@ -39,6 +39,6 @@
   }
 
   .popular-search input {
-    width: calc(100% - 70px);
+    width: calc(100% - 40px);
   }
 }

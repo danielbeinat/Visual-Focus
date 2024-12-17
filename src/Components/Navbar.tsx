@@ -1,19 +1,50 @@
-import logo from "../assets/logo.svg";
-import { Search } from "./Search";
+import React from "react";
 import { Link } from "react-router-dom";
-import "./css/Navbar.css";
+import { Camera, Menu } from "lucide-react";
+import { motion } from "framer-motion";
+import { Search } from "./Search";
 
 export const Navbar = () => {
   return (
-    <>
-      <header className="flex items-center flex-col justify-center gap-4 md:px-10 py-4 bg-black">
-        <Link to={"/"} className="flex items-center gap-2 justify-center">
-          <img className="md:w-7 md:h-7 w-5 h-5" src={logo} alt="image" />
-          <h1 className="text-white md:text-xl">Visual image</h1>
-        </Link>
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg"
+    >
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Camera className="w-8 h-8 text-white" />
+            </motion.div>
+            <h1 className="text-white text-xl font-bold">Visual Image</h1>
+          </Link>
 
-        <Search className="navbar-search" />
-      </header>
-    </>
+          <div className="flex-1 max-w-xl mx-4 hidden md:block">
+            <Search className="w-full" />
+          </div>
+
+          <div className="flex items-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-purple-600 px-4 py-2 rounded-full font-medium shadow-md hover:bg-purple-100 transition-colors duration-200"
+            >
+              Upload
+            </motion.button>
+            <button
+              className="text-white p-2 rounded-full hover:bg-purple-500 transition-colors duration-200"
+              aria-label="Menu"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.header>
   );
 };

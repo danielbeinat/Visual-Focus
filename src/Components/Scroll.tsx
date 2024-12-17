@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const Scroll = () => {
   const [showButton, setShowButton] = useState<boolean>(false);
@@ -29,25 +31,14 @@ export const Scroll = () => {
   return (
     <>
       {showButton && (
-        <button
+        <motion.button
           onClick={scrollToTop}
-          className="fixed flex items-center bottom-5 right-5 p-3 bg-[#00000080] rounded"
+          className="fixed flex items-center bottom-5 right-5 bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-6 text-white"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m4.5 15.75 7.5-7.5 7.5 7.5"
-            />
-          </svg>
-        </button>
+          <ArrowUp size={20} />
+        </motion.button>
       )}
     </>
   );

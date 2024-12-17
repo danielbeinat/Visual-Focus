@@ -30,6 +30,7 @@ export const Popular = () => {
               className="relative group"
               to={`/photo/${photo.id}`}
               key={photo.id}
+              onClick={() => window.scrollTo(0, 0)}
             >
               <img
                 src={photo.urls.regular}
